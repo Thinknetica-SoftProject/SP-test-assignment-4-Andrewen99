@@ -11,3 +11,11 @@
 ## Решение:
 
 
+locker_code = 0
+File.readlines("data/3.txt").each do |line|
+  int_array = line.split.map(&:to_i)
+  locker_code += int_array.max - int_array.min
+end
+puts locker_code
+
+## Также можно просуммировать все макс элементы и мин элементы из каждой строки, и потом вычесть из суммы макс элементов сумму минимальных

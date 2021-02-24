@@ -14,5 +14,19 @@
 # - Результат (число) выводится через puts
 #
 #
-## Решение:
+## Решение
+require 'digest/md5'
+input = gets.chomp
+full_input = ""
+number = 1
+md5_hash = ""
 
+loop do
+  full_input = input.to_s + number.to_s
+  md5_hash = Digest::MD5.hexdigest full_input
+  if (md5_hash[0..4] == "00000")
+    break
+  end
+  number += 1
+end
+puts number

@@ -17,5 +17,15 @@
 ## Решение:
 
 
+current_floor = 0
 
+File.open("data/1.txt").each_char do |char|
+  if char == "("
+    current_floor += 1
+  elsif char == ")"
+    current_floor -= 1
+  end
+end
+puts current_floor
 
+## Можно также просто посчитать кол-во символов '(' как up_count и ')' как down_count  и тогда этаж = up_count - down_count

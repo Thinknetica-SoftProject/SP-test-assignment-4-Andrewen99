@@ -15,5 +15,16 @@
 #
 #
 ## Решение:
+wrapping_paper_amount = 0
 
+def calculate_paper_amount(length, height, width)
+  #Упростил выражение (т.к. наименьшая сторона будет у длины и ширины)
+  #2*ш*д + 2*д*в + 2*в*ш + площадь наименьшей стороны = 2(ш*д + в*ш) + 2*д*в + д*в = 2*ш*(д + в) + 3*д*в
+  amount = 2*width*(length + height) + 3*length*height
+end
 
+File.readlines("data/4.txt").each do |line|
+  int_array = line.split("x").map(&:to_i).sort!
+  wrapping_paper_amount += calculate_paper_amount(int_array[0], int_array[1], int_array[2])
+end
+puts wrapping_paper_amount
